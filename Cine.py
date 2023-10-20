@@ -23,14 +23,11 @@ class Ventas():
         self.idPelicula = id_pelicula
         
 def buscaPeli(id, peliculas):
-
     buscador = False
-
     for i in peliculas:
         if id == i.id:
             buscador = True
-            return buscador
-        
+            return buscador 
     return buscador
 
 clientes = []
@@ -52,17 +49,14 @@ def agregaVenta(id_tiquete, id_cliente, nom_cliente, id_pelicula):
     ventas.append(nueva_venta)
     #print('Venta realizada exitosamente\n')
 
-
 # Inicializando Peliculas
 agregaPelicula(1, 'Peppa Pig, la pelicula', '3 horas')
 agregaPelicula(2, 'The Rat Kid', '2 horas')
 agregaPelicula(3, 'Kung fuck panda', '1 horas')
 
-
 print('Bienvenido a Kevin Cinemas :)\n')
 while True:
     opc = int(input('\n\n1. Agregar Pelicula \n2. Realizar Venta \n3. Imprimir Peliculas \n4. Imprimir Clientes \n5. Imprimir Peliculas con determinada letra inicial \n6. Imprimir Ventas \n'))
-
     if opc == 1:
         id_peli = int(input('Digite el id de la pelicula\n'))
         titu_peli = input('Digite el titulo de la pelicula\n')
@@ -81,7 +75,8 @@ while True:
             agregaCliente(ced, nom, apel)
             # Agregando Venta id_tiquete, id_cliente, nom_cliente, id_pelicula
             agregaVenta(id_tiquete, ced, nom, id_pelicula)
-
+        else:
+            print('Pelicula no encontrada.')
     elif opc == 3:
         for i in peliculas:
             print('=======================================')
@@ -92,18 +87,15 @@ while True:
         for cliente in clientes:
             print ('\n=======================================')
             print(f' ID Cliente: {cliente.id} \n Nombre Cliente: {cliente.nombre} \n Apellido Cliente: {cliente.apellido}')
-
     elif opc == 5:
-        letra = input('\nDigite la letra inicial:')
+        letra = input('\nDigite la letra inicial: ')
         for peli in peliculas:
             if peli.titulo[0] == letra:
                 print(f'{peli.titulo}')
-
     elif opc == 6:
         for i in ventas:
             print('=======================================')
             print (f' Tiquete: {i.tiquete} \n Ced Cliente: {i.cliente} \n Nombre Cliente: {i.nomCliente} \n ID Pelicula: {i.idPelicula}')
-
     else:
         print('\n\nGracias por utilizar nuestros servicios :)')
         break    
